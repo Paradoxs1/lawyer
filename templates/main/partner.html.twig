@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% set pathToPartnerFolder = constant('App\\Entity\\Partner::SERVER_PATH_TO_IMAGE_FOLDER') ~ '/' %}
+    <main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Про нас</a></li>
+                    <li>> Наші партнери</li>
+                </ul>
+            </div>
+        </section>
+        <section class="partners">
+            <div class="container">
+                <div class="partners-container">
+                    {% for partner in partners %}
+                    <div class="partner-block">
+                        <div class="partner-img">
+                            <img src="{{ asset(pathToPartnerFolder ~ partner.filename) | imagine_filter('my_thumb') }}" alt="{{ partner.title }}">
+                        </div>
+                        <p><a href="{{ partner.site }}" class="partner-title" target="_blank" >{{ partner.title }}</a></p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

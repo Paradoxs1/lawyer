@@ -1,0 +1,166 @@
+.s-1, .s-2, .s-3, .s-4, .s-5, .s-6, .s-7, .s-8, .s-9, .s-10, .s-11, .s-12, .s-13, .s-14, .s-15, .s-16, .s-17, .s-18, .s-19, .s-20, .s-21, .s-22, .s-23, .s-24, .s-25, .s-26, .s-27{
+	background: url(sprites.png) no-repeat;
+}
+
+.s-1{
+	background-position: -10px -15px ;
+	width: 28px;
+	height: 20px;
+}
+
+.s-2{
+	background-position: -67px -18px ;
+	width: 16px;
+	height: 18px;
+}
+
+.s-3{
+	background-position: -117px -21px ;
+	width: 14px;
+	height: 16px;
+}
+
+.s-4{
+	background-position: -167px -20px ;
+	width: 16px;
+	height: 16px;
+}
+
+.s-5{
+	background-position: -212px -17px ;
+	width: 19px;
+	height: 19px;
+}
+
+.s-6{
+	background-position: -271px -16px ;
+	width: 9px;
+	height: 18px;
+}
+
+.s-7{
+	background-position: -314px -17px ;
+	width: 20px;
+	height: 18px;
+}
+
+.s-8{
+	background-position: -367px -23px ;
+	width: 14px;
+	height: 8px;
+}
+
+.s-9{
+	background-position: -414px -21px ;
+	width: 14px;
+	height: 8px;
+}
+
+.s-10{
+	background-position: -458px -11px ;
+	width: 32px;
+	height: 32px;
+}
+
+.s-11{
+	background-position: -508px -11px ;
+	width: 30px;
+	height: 32px;
+}
+
+.s-12{
+	background-position: -556px -16px ;
+	width: 35px;
+	height: 21px;
+}
+
+.s-13{
+	background-position: -4px -51px ;
+	width: 47px;
+	height: 47px;
+}
+
+.s-14{
+	background-position: -58px -51px ;
+	width: 46px;
+	height: 51px;
+}
+
+.s-15{
+	background-position: -113px -53px ;
+	width: 67px;
+	height: 47px;
+}
+
+.s-16{
+	background-position: -192px -55px ;
+	width: 64px;
+	height: 44px;
+}
+
+.s-17{
+	background-position: -271px -63px ;
+	width: 30px;
+	height: 27px;
+}
+
+.s-18{
+	background-position: -313px -67px ;
+	width: 24px;
+	height: 23px;
+}
+
+.s-19{
+	background-position: -364px -73px ;
+	width: 16px;
+	height: 10px;
+}
+
+.s-20{
+	background-position: -420px -75px ;
+	width: 12px;
+	height: 8px;
+}
+
+.s-21{
+	background-position: -460px -61px ;
+	width: 25px;
+	height: 25px;
+}
+
+.s-22{
+	background-position: -520px -69px ;
+	width: 17px;
+	height: 15px;
+}
+
+.s-23{
+	background-position: -564px -51px ;
+	width: 59px;
+	height: 59px;
+}
+
+.s-24{
+	background-position: -21px -123px ;
+	width: 9px;
+	height: 7px;
+}
+
+.s-25{
+	background-position: -68px -115px ;
+	width: 20px;
+	height: 25px;
+}
+
+.s-26{
+	background-position: -116px -117px ;
+	width: 22px;
+	height: 22px;
+}
+
+.s-27{
+	background-position: -167px -114px ;
+	width: 18px;
+	height: 27px;
+}
+

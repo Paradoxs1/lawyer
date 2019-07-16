@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% set pathToProductFolder = constant('App\\Entity\\Product::SERVER_PATH_TO_IMAGE_FOLDER') ~ '/' %}
+    <main>
+        <div class="shop-outer">
+            <section class="breadcrumbs">
+                <div class="container">
+                    <ul>
+                        <li><a href="#">Про нас</a></li>
+                        <li>> Интернет-магазин</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="shop">
+                <div class="container">
+                    <div class="shop-inner">
+                        <div class="basket">
+                            <div><span class="count-product">0</span></div>
+                            Корзина (<span class="basket-price">0</span> грн)
+                        </div>
+                        <div class="clearfix">
+                            <aside class="left">
+                                <h2><span>Каталог</span></h2>
+                                <form action="">
+                                    {% for category in categories %}
+                                        <input type="checkbox" id="{{ category.id }}">
+                                        <label for="{{ category.id }}">{{ category.title|lower }}</label><br>
+                                    {% endfor %}
+                                </form>
+                            </aside>
+                            <section class="shop-content">
+                                <select name="" id="sort">
+                                    <option value="hide">Исходная сортировка</option>
+                                    <option value="top">По возрастанию</option>
+                                    <option value="bottom">По убыванию</option>
+                                </select>
+                                <div class="shop-content-products">
+                                    {% for product in products %}
+                                    <div class="shop-product">
+                                        <a href="{{ path('product', {'productSlug': product.slug }) }}" class="shop-img">
+                                            <img src="{{ asset(pathToProductFolder ~ product.filename) }}" alt="{{ product.title|capitalize }}">
+                                        </a>
+                                        <div class="clearfix">
+                                            <a href="{{ path('product', {'productSlug': product.slug }) }}" class="shop-product-title">{{ product.title|capitalize }}</a>
+                                            <span class="shop-price"><span class="price">{{ product.price }}</span> {{ product.currency }}</span>
+                                        </div>
+                                        <a href="#" class="btn-basket">В корзину</a>
+                                    </div>
+                                    {% endfor %}
+                                    <div class="shop-product">
+                                        <a href="#" class="shop-img">
+                                            <img src="img/cup.jpg" alt="">
+                                        </a>
+                                        <div class="clearfix">
+                                            <a href="#" class="shop-product-title">Чашка</a>
+                                            <span class="shop-price">100 грн</span>
+                                        </div>
+                                        <a href="#" class="btn-basket">В корзину</a>
+                                    </div>
+                                    <div class="shop-product">
+                                        <a href="#" class="shop-img">
+                                            <img src="img/cup.jpg" alt="">
+                                        </a>
+                                        <div class="clearfix">
+                                            <a href="#" class="shop-product-title">Чашка</a>
+                                            <span class="shop-price">100 грн</span>
+                                        </div>
+                                        <a href="#" class="btn-basket">В корзину</a>
+                                    </div>
+                                    <div class="shop-product">
+                                        <a href="#" class="shop-img">
+                                            <img src="img/cup.jpg" alt="">
+                                        </a>
+                                        <div class="clearfix">
+                                            <a href="#" class="shop-product-title">Чашка</a>
+                                            <span class="shop-price">100 грн</span>
+                                        </div>
+                                        <a href="#" class="btn-basket">В корзину</a>
+                                    </div>
+                                    <div class="shop-product">
+                                        <a href="#" class="shop-img">
+                                            <img src="img/cup.jpg" alt="">
+                                        </a>
+                                        <div class="clearfix">
+                                            <a href="#" class="shop-product-title">Чашка</a>
+                                            <span class="shop-price">100 грн</span>
+                                        </div>
+                                        <a href="#" class="btn-basket">В корзину</a>
+                                    </div>
+                                    <div class="shop-product">
+                                        <a href="#" class="shop-img">
+                                            <img src="img/cup.jpg" alt="">
+                                        </a>
+                                        <div class="clearfix">
+                                            <a href="#" class="shop-product-title">Чашка</a>
+                                            <span class="shop-price">100 грн</span>
+                                        </div>
+                                        <a href="#" class="btn-basket">В корзину</a>
+                                    </div>
+                                    <div class="shop-product">
+                                        <a href="#" class="shop-img">
+                                            <img src="img/cup.jpg" alt="">
+                                        </a>
+                                        <div class="clearfix">
+                                            <a href="#" class="shop-product-title">Чашка</a>
+                                            <span class="shop-price">100 грн</span>
+                                        </div>
+                                        <a href="#" class="btn-basket">В корзину</a>
+                                    </div>
+                                    <div class="shop-product">
+                                        <a href="#" class="shop-img">
+                                            <img src="img/cup.jpg" alt="">
+                                        </a>
+                                        <div class="clearfix">
+                                            <a href="#" class="shop-product-title">Чашка</a>
+                                            <span class="shop-price">100 грн</span>
+                                        </div>
+                                        <a href="#" class="btn-basket">В корзину</a>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/store.js') }}"></script>
+{% endblock %}

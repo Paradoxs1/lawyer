@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% set pathToDocumentFolder = constant('App\\Entity\\Document::SERVER_PATH_TO_IMAGE_FOLDER') ~ '/' %}
+    <main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Про нас</a></li>
+                    <li>> Документація</li>
+                </ul>
+            </div>
+        </section>
+        <section class="document">
+            <div class="container">
+                <div class="document-conatiner">
+                    {% for document in lastDocuments %}
+                    <div class="document-block">
+                        <a class="document-image" href="{{ asset(pathToDocumentFolder ~ document.filename) }}"><img src="{{ asset(pathToDocumentFolder ~ document.filename) }}" width="107" height="75" alt="{{ document.title }}"></a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

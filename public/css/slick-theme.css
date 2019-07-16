@@ -1,0 +1,103 @@
+
+.slick-prev,
+.slick-next{
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  display: block;
+  width: 31px;
+  height: 31px;
+  padding: 0;
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: url('../img/consultation-arrow.png') no-repeat center;
+}
+.slick-prev{
+  left: -55px;
+}
+.slick-prev:hover, .slick-next:hover{
+  opacity: .7;
+}
+.slick-next{
+  right: -30px;
+  
+  -webkit-transform: rotate(-180deg);
+     -moz-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+       -o-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+.slick-next:hover{
+  background-position: right top;
+}
+
+
+/* Dots */
+.slick-dotted.slick-slider
+{
+    margin-bottom: 30px;
+}
+
+.slick-dots
+{
+    position: absolute;
+    bottom: -50px;
+
+    display: block;
+
+    width: 100%;
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+.slider .slick-dots{
+	bottom: -50px;
+}
+.slick-dots li
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 24px;
+    height: 24px;
+    margin: 0 3px;
+    padding: 0;
+    border: 3px solid #c4c4c4;
+    border-radius: 50%; 
+
+    cursor: pointer;
+}
+.slick-dots li button
+{
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    font-size: 0;
+    line-height: 0;
+
+    display: block;
+
+    width: 12px;
+    height: 12px;
+    border: none;
+    cursor: pointer;
+
+    color: transparent;
+    border-radius: 50%; 
+    outline: none;
+    background: transparent;
+}
+.slick-dots .slick-active button{
+    background: #15567e;
+}
+.slick-dots .slick-active{
+  border-color: #15567e;
+}

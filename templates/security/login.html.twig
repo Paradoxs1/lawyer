@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <main>
+        {{ include('breadcrumbs/breadcrumbs.html.twig') }}
+
+        <section class="entrance">
+            <div class="container">
+                {{ form_start(form, {'attr': { 'class': 'entrance-block'} }) }}
+
+                    {% if error %}
+                        <div class="entrance-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <div class="error">
+                        {{ form_errors(form._username) }}
+                    </div>
+                    {{ form_widget(form._username, {'attr': {
+                        'placeholder': 'Email'
+                    }}) }}
+
+                    <div class="error">
+                        {{ form_errors(form._password) }}
+                    </div>
+                    {{ form_widget(form._password, {'attr': {
+                        'placeholder': 'Пароль'
+                    }}) }}
+
+                    <div class="entrance-remember">
+                        <input type="checkbox" id="remember_me" class="none" name="_remember_me">
+                        <label for="remember_me">Keep me logged in</label>
+                    </div>
+
+                    <button type="submit" name="_submit" class="btn btn-success">Login <span class="fa fa-lock"></span></button>
+                    &nbsp;
+                    <a href="{{ path('register') }}"><i></i>Register</a>
+                    <a class="reset-link" href="{{ path('request') }}">Forgotten Password?</a>
+                {{ form_end(form) }}
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+

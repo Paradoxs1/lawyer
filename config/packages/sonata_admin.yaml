@@ -1,0 +1,29 @@
+sonata_admin:
+    title: 'Sonata Admin'
+    dashboard:
+        blocks:
+            - { type: sonata.admin.block.admin_list, position: left }
+
+        groups:
+            Products:
+                keep_open:            false
+                label:                Интернет-магазин
+                icon:                 '<i class="fa fa-briefcase"></i>'
+                items:
+                    - admin.category
+                    - admin.product
+
+            Other:
+                keep_open:            false
+                label:                Остальные
+                icon:                 '<i class="fa fa-comments"></i>'
+                items:
+                    - admin.post
+                    - admin.document
+                    - admin.feedback
+                    - admin.partner
+
+sonata_block:
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]

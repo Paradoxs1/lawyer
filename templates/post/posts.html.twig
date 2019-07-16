@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% set pathToPostFolder = constant('App\\Entity\\Post::SERVER_PATH_TO_IMAGE_FOLDER') ~ '/' %}
+    <main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Про нас</a></li>
+                    <li>> Новости</li>
+                </ul>
+            </div>
+        </section>
+        <section class="all-news">
+            <div class="container">
+                {% for post in lastPosts %}
+                <div class="new">
+                    <img src="{{ asset(pathToPostFolder ~ post.filename) }}" alt="{{ post.title }}">
+                    <div class="new-content clearfix">
+                        <span class="date right">{{ post.createdAt|date("d/m/Y") }}</span>
+                        <div><a href="{{ path('singleNews', {'slug': post.slug }) }}" class="new-title">{{ post.title }}</a></div>
+                        <p>{{ post.description }}</p>
+                        <a href="{{ path('singleNews', {'slug': post.slug }) }}">Дізнатися більше</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {{ knp_pagination_render(lastPosts) }}
+        <section class="pagination">
+            <div class="container">
+                <div class="pagination-container">
+                    <a href="#" class="active">1</a>
+                    <a href="#" >2</a>
+                    <a href="#" >3</a>
+                    <span>...</span>
+                    <a href="#" >20</a>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

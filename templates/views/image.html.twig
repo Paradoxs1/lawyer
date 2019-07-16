@@ -1,0 +1,14 @@
+<th>{% block name %}{{ admin.trans(field_description.label) }}{% endblock %}</th>
+<td>
+    {% if app.request.get('_route') == "admin_app_post_show" %}
+    <img src="/{{ constant('App\\Entity\\Post::SERVER_PATH_TO_IMAGE_FOLDER') }}/{{ object.getFilename }}" title="{{ object.getTitle }}" />
+    {% elseif app.request.get('_route') == "admin_app_document_show" %}
+    <img src="/{{ constant('App\\Entity\\Document::SERVER_PATH_TO_IMAGE_FOLDER') }}/{{ object.getFilename }}" title="{{ object.getTitle }}" />
+    {% elseif app.request.get('_route') == "admin_app_partner_show" %}
+    <img src="/{{ constant('App\\Entity\\Partner::SERVER_PATH_TO_IMAGE_FOLDER') }}/{{ object.getFilename }}" title="{{ object.getTitle }}" />
+    {% elseif app.request.get('_route') == "admin_app_product_show" %}
+    <img src="/{{ constant('App\\Entity\\Product::SERVER_PATH_TO_IMAGE_FOLDER') }}/{{ object.getFilename }}" title="{{ object.getTitle }}" />
+    {% endif %}
+    </br>
+    {% block field %}{{ value|nl2br }}{% endblock %}
+</td>

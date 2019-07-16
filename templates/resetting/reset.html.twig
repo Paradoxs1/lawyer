@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<main>
+    {{ include('breadcrumbs/breadcrumbs.html.twig') }}
+
+    <section class="entrance entrance-request">
+        <div class="container">
+            <h2>Reset Password</h2>
+            {{ form_start(form, {'attr': {'class': 'entrance-block reset-form',  novalidate: 'novalidate'} }) }}
+                <div class="error">{{ form_errors(form.plainPassword.first) }}</div>
+                {{ form_label(form.plainPassword.first, 'Пароль:') }}
+                {{ form_widget(form.plainPassword.first, {'attr': {
+                    'placeholder': 'Пароль'
+                }}) }}
+                <div class="error">{{ form_errors(form.plainPassword.second) }}</div>
+                {{ form_label(form.plainPassword.second, 'Повтор пароля:') }}
+                {{ form_widget(form.plainPassword.second, {'attr': {
+                    'placeholder': 'Повтор пароля'
+                }}) }}
+                <input type="submit" class="btn-submit submit" value="Submit">
+            {{ form_end(form) }}
+        </div>
+    </section>
+</main>
+<main>
+{% endblock %}

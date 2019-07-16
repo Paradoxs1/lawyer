@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <title>{% block title %}Благодійна організація благодійний фонд адвокатів Украіїни «Правова підтримка»{% endblock %}</title>
+
+    <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/jquery.mn-file.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+</head>
+<body>
+<header id="head">
+    <div class="container">
+        <div class="head-top clearfix">
+        {% if app.request.get('_route') == 'homepage' %}
+            <a class="left logo">
+        {% else %}
+            <a href="{{ path("homepage") }}" class="left logo">
+        {% endif %}
+                <img src="{{ asset('img/logo.png') }}" alt="Логотип">
+                <span>Благодійна організація благодійний фонд адвокатів Украіїни «Правова підтримка»</span>
+            </a>
+            <div class="right clearfix head-right">
+                <div class="head-social right">
+                    <a href="#" class="inst"></a>
+                    <a href="#" class="fb"></a>
+                    <a href="#" class="telgm"></a>
+                    <select name="lang" id="">
+                        <option value="ua" selected>UA</option>
+                        <option value="en">EN</option>
+                        <option value="ru">RU</option>
+                    </select>
+                </div>
+                <ul class="authentication left">
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a href="{{ path('logout') }}"><img src="{{ asset('img/3.png') }}" alt="">Вийти</a></li>
+                    {% else %}
+                        <li><a href="{{ path('login') }}"><img src="{{ asset('img/3.png') }}" alt="">Увійти</a></li>
+                        <li><a href="{{ path('register') }}"><img src="{{ asset('img/registration.png') }}" alt="">Реєстрація</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <ul class="head-contact">
+                <li><a href="#">Прозоро</a></li>
+                <li><a href="tel:+380503030875">+38 050 30 30 875</a></li>
+                <li><a href="tel:+380503030875">+38 050 30 30 875</a></li>
+            </ul>
+        </div>
+        <div class="head-bottom">
+            <div class="toggle-block">
+                <span>Меню</span>
+                <a href="#" class="toggle-mnu hidden-lg"><span></span></a>
+            </div>
+            <ul class="menu" id="menu">
+                <li><a href="#">Про нас</a></li>
+                <li><a href="#">Благодійність</a></li>
+                <li><a href="#">Наші Благодійники</a></li>
+                <li><a href="{{ path('allNews') }}">Новини</a></li>
+                <li><a href="{{ path('documents') }}">Документація</a></li>
+                <li><a href="#">Контакти</a></li>
+                <li><a href="#">Наші проекти</a></li>
+                <li><a href="{{ path('store') }}">Інтернет- магазин</a></li>
+                <ul class="add-menu">
+                    <li><a href="#">Консультації</a></li>
+                    <li><a href="#">Адвокат-адвокату</a></li>
+                    <li><a href="#">Безкоштовна Державна  підтримка адвокатів</a></li>
+                    <li><a href="#">База відпочинку</a></li>
+                </ul>
+            </ul>
+        </div>
+        {% if app.request.get('_route') == 'homepage' %}
+        <div class="head-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/VltqJa3vorw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        {% endif %}
+    </div>
+</header>
+
+{% block content %}
+{% endblock %}
+
+<footer>
+    <div class="footer-outer">
+        <div class="container">
+            <div class="footer-inner clearfix">
+                <div class="right footer-block">
+                    <h2 class="inline-popups"><a href="#popup" data-effect="mfp-zoom-out">свяжитесь с нами</a></h2>
+                    <ul>
+                        <li><i></i><p>РОЗМІСТИТИ НАШ БАНЕР У СЕБЕ НА САЙТІ</p></li>
+                        <li><i></i><p>СТАТИ ВОЛОНТЕРОМ НАШОГО ФОНДУ</p></li>
+                        <li><i></i><p>ПЕРЕРАХУВАТИ КОШТИ ДЛЯ ДОПОМОГИ</p></li>
+                    </ul>
+                </div>
+                <div class="left footer-menu">
+                    <h2>Про нас</h2>
+                    <ul>
+                        <li><a href="#">Благодійність</a></li>
+                        <li><a href="#">Наші Благодійники</a></li>
+                        <li><a href="{{ path('allNews') }}">Новини</a></li>
+                        <li><a href="{{ path('documents') }}">Документація</a></li>
+                        <li><a href="#">Контакти</a></li>
+                        <li><a href="#">Наші проекти</a></li>
+                        <li><a href="{{ path('store') }}">Інтернет- магазин</a></li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="#" class="inst"></a>
+                        <a href="#" class="fb"></a>
+                        <a href="#" class="telegram"></a>
+                    </div>
+                </div>
+                <div class="left footer-contact">
+                    <h2>контакти</h2>
+                    <ul>
+                        <li>пн-пт<br> c 9:00 - 17:00</li>
+                        <li><a href="tel:+380503030876">+38 050 30 30 876</a><br><a href="tel:+380503030876">+38 050 30 30 876</a></li>
+                        <li><a href="mailto:advfd@gmail.com">advfd@gmail.com</a></li>
+                    </ul>
+                    <h2 class="inline-popups"><a href="#popup" data-effect="mfp-zoom-out">свяжитесь с нами</a></h2>
+                </div>
+            </div>
+            <a href="#head" class="button-top"></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Feedback -->
+{{ render(controller('App\\Controller\\MainController::createFeedbackForm')) }}
+
+<script type="text/javascript" src="{{ asset('js/jquery-1.12.3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.mask.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.mn-file.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/prefixfree.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/waypoints.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/animated.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>

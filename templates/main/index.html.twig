@@ -1,0 +1,183 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% set pathToPostFolder = constant('App\\Entity\\Post::SERVER_PATH_TO_IMAGE_FOLDER') ~ '/' %}
+    <main>
+        <section class="main">
+            <div class="container clearfix">
+                <aside class="left">
+                    <h2><span>Рейтинг благодійників</span></h2>
+                    <div class="aside-block">
+                        <div class="auspicious clearfix">
+                            <div class="auspicious-name">
+                                <img src="{{ asset('img/man.png') }}" alt="">
+                                <a href="#">Михаил Иванов</a>
+                            </div>
+                            <div class="auspicious-money right"><i class="icon-money"></i> 100 000</div>
+                        </div>
+                        <div class="auspicious clearfix">
+                            <div class="auspicious-name">
+                                <img src="{{ asset('img/man.png') }}" alt="">
+                                <a href="#">Михаил Иванов</a>
+                            </div>
+                            <div class="auspicious-money right"><i class="icon-money"></i> 100 000</div>
+                        </div>
+                        <div class="auspicious clearfix">
+                            <div class="auspicious-name">
+                                <img src="{{ asset('img/man.png') }}" alt="">
+                                <a href="#">Михаил Иванов</a>
+                            </div>
+                            <div class="auspicious-money right"><i class="icon-money"></i> 100 000</div>
+                        </div>
+                        <div class="auspicious clearfix">
+                            <div class="auspicious-name">
+                                <img src="{{ asset('img/man.png') }}" alt="">
+                                <a href="#">Михаил Иванов</a>
+                            </div>
+                            <div class="auspicious-money right"><i class="icon-money"></i> 100 000</div>
+                        </div>
+                        <div class="auspicious clearfix">
+                            <div class="auspicious-name">
+                                <img src="{{ asset('img/man.png') }}" alt="">
+                                <a href="#">Михаил Иванов</a>
+                            </div>
+                            <div class="auspicious-money right"><i class="icon-money"></i> 100 000</div>
+                        </div>
+                        <div class="auspicious clearfix">
+                            <div class="auspicious-name">
+                                <img src="{{ asset('img/man.png') }}" alt="">
+                                <a href="#">Михаил Иванов</a>
+                            </div>
+                            <div class="auspicious-money right"><i class="icon-money"></i> 100 000</div>
+                        </div>
+                    </div>
+                    <div class="aside-hidden">
+                        <div class="auspicious clearfix">
+                            <div class="auspicious-name">
+                                <img src="{{ asset('img/man.png') }}" alt="">
+                                <a href="#">Михаил Иванов</a>
+                            </div>
+                            <div class="auspicious-money right"><i class="icon-money"></i> 100 000</div>
+                        </div>
+                        <div class="auspicious clearfix">
+                            <div class="auspicious-name">
+                                <img src="{{ asset('img/man.png') }}" alt="">
+                                <a href="#">Михаил Иванов</a>
+                            </div>
+                            <div class="auspicious-money right"><i class="icon-money"></i> 100 000</div>
+                        </div>
+                    </div>
+                    <div class="aside-btn clearfix">Усього благодійників <i class="icon-arrow"></i> <span class="aside-number right">892</span></div>
+                </aside>
+                <section class="main-content clearfix">
+                    <div class="main-about left">
+                        <h2><span>О нас</span></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
+                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                    </div>
+                    <div class="right map">
+                        {{ include('maps/homepage-map.html.twig') }}
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section class="news">
+            <div class="container">
+                <h2><span>Новини</span></h2>
+                <div class="news-container">
+                    {% for post in lastPosts %}
+                    <div class="news-block">
+                        <div class="news-img" style="background-image: url({{ asset(pathToPostFolder ~ post.filename) | imagine_filter('my_thumb') }})"></div>
+                        <div class="news-content">
+                            <div class="news-title">Останні новини </div>
+                            <span class="news-date">{{ post.createdAt|date("d M")|localizeddate('medium', 'none', app.request.locale, null, "d MMMM YYYY") }}</span>
+                            <div class='news-text'>
+                                <p>{{ post.description|truncate(50, true) }}</p>
+                            </div>
+                            <a href="{{ path('singleNews', {'slug': post.slug }) }}">Детальніше...</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <a href="{{ path('allNews') }}" class="btn-news">усі новини</a>
+            </div>
+        </section>
+        <section class="info">
+            <div class="container">
+                <div class="info-container">
+                    <div class="info-block">
+                        <div class="info-title-block">
+                            <div class="info-title">Правова<br> консультація</div>
+                        </div>
+                        <div class="info-img">
+                            <img src="{{ asset('img/info1.jpg') }}" alt="">
+                        </div>
+                        <div class="info-bottom">
+                            <div class="info-content">
+                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+                            </div>
+                            <a href="#" class="btn-info">подивитися</a>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-title-block">
+                            <div class="info-title">Благодійна правова допомога</div>
+                        </div>
+                        <div class="info-img">
+                            <img src="{{ asset('img/info2.jpg') }}" alt="">
+                        </div>
+                        <div class="info-bottom">
+                            <div class="info-content">
+                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+                            </div>
+                            <a href="#" class="btn-info">прийняти участь</a>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-title-block">
+                            <div class="info-title">Адвокатська<br> підтримка</div>
+                        </div>
+                        <div class="info-img">
+                            <img src="{{ asset('img/info3.jpg') }}" alt="">
+                        </div>
+                        <div class="info-bottom">
+                            <div class="info-content">
+                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+                            </div>
+                            <a href="#" class="btn-info">подати заяву</a>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-title-block">
+                            <div class="info-title">Грантові<br> програми</div>
+                        </div>
+                        <div class="info-img">
+                            <img src="{{ asset('img/info4.jpg') }}" alt="">
+                        </div>
+                        <div class="info-bottom">
+                            <div class="info-content">
+                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+                            </div>
+                            <a href="#" class="btn-info">купити</a>
+                        </div>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-title-block">
+                            <div class="info-title">Благодійний<br> магазин</div>
+                        </div>
+                        <div class="info-img">
+                            <img src="{{ asset('img/info5.jpg') }}" alt="">
+                        </div>
+                        <div class="info-bottom">
+                            <div class="info-content">
+                                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+                            </div>
+                            <a href="#" class="btn-info">купити</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

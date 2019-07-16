@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% set pathToProductFolder = constant('App\\Entity\\Product::SERVER_PATH_TO_IMAGE_FOLDER') ~ '/' %}
+    <main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Про нас</a></li>
+                    <li><a href="{{ path('store') }}">> Интернет-магазин</a></li>
+                    <li><a href="#">> {{ product.category.title|capitalize }}</a></li>
+                    <li>> {{ product.title|capitalize }}</li>
+                </ul>
+            </div>
+        </section>
+        <section class="product">
+            <div class="container">
+                <div class="product-inner">
+                    <div class="basket">
+                        <div><span class="count-product">1</span></div>
+                        Корзина (<span class="basket-price">{{ product.price }}</span> грн)
+                    </div>
+                    <div class="product-block clearfix">
+                        <div class="left product-img">
+                            <img src="{{ asset(pathToProductFolder ~ product.filename) }}" alt="{{ product.title|capitalize }}">
+                        </div>
+                        <div class="product-content">
+                            <p class="product-title">{{ product.title|capitalize }}</p>
+                            <div class="characteristics">
+                                <p><span>Цвет:</span> {{ product.color }}</p>
+                            </div>
+                            <div class="product-text">
+                                {{ product.description }}
+                            </div>
+                            <div class="shop-price"><span class="price">{{ product.price }}</span> {{ product.currency }}</div>
+                            <div class="counter-block">
+                                <span class="counter-left">-</span><input type="text" value="1" class="counter-num"><span class="counter-right">+</span>
+                            </div>
+                            <a href="#" class="btn-order">Оформить заказ</a>
+                            <a href="{{ path('store') }}" class="btn-cont">Продолжить покупки</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/product.js') }}"></script>
+{% endblock %}

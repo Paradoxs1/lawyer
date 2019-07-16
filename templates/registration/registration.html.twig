@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<main>
+    {{ include('breadcrumbs/breadcrumbs.html.twig') }}
+    <section class="registration">
+        <div class="container">
+            <div class="registration-inner">
+                <h2><span>РЕЄСТРАЦІЯ</span></h2>
+                <div class="wrapper clearfix">
+                    <div class="tabs">
+                        <span class="tab {% if not checkTab %}active{% endif %}">Адвокат</span>
+                        <span class="tab {% if checkTab %}active{% endif %}">Користувач</span>
+                    </div>
+                    <div class="tab_content">
+                        <div class="tab_item clearfix {% if not checkTab %}tab_item_show{% endif %}">
+                            {{ form_start(formLawyer, {'attr': { 'method': 'post', 'action': path('register'), novalidate: 'novalidate'} }) }}
+                                {% include 'registration/register-form.html.twig' with {'form': formLawyer} %}
+
+                                <div class="register-fields register-fields-bottom">
+                                    <div class="clearfix">
+                                        <div class="error">{{ form_errors(formLawyer.numberCertificate) }}</div>
+                                        {{ form_label(formLawyer.numberCertificate, '№ свідоцтва:') }}
+                                        {{ form_widget(formLawyer.numberCertificate, {'attr': {
+                                            'placeholder': '№ свідоцтва'
+                                        }}) }}
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="error">{{ form_errors(formLawyer.dateCertificate) }}</div>
+                                        {{ form_label(formLawyer.dateCertificate, 'Дата видачі свідоцтва:') }}
+                                        {{ form_widget(formLawyer.dateCertificate, {'attr': {
+                                            'placeholder': 'Дата видачі свідоцтва'
+                                        }}) }}
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="error">{{ form_errors(formLawyer.organization) }}</div>
+                                        {{ form_label(formLawyer.organization, 'Орган, що видав свідоцтво:') }}
+                                        {{ form_widget(formLawyer.organization, {'attr': {
+                                            'placeholder': 'Рада адвокатів Харківської області'
+                                        }}) }}
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="error">{{ form_errors(formLawyer.position) }}</div>
+                                        {{ form_label(formLawyer.position, 'Посада:') }}
+                                        {{ form_widget(formLawyer.position, {'attr': {
+                                            'placeholder': 'Посада'
+                                        }}) }}
+                                    </div>
+                                    <div class="clearfix">
+                                        <div class="error">{{ form_errors(formLawyer.kindOfActivity) }}</div>
+                                        {{ form_label(formLawyer.kindOfActivity, 'Форми адвокатської  діяльності:') }}
+                                        {{ form_widget(formLawyer.kindOfActivity, {'attr': {
+                                            'placeholder': 'Індивідуальна адвокатська діяльність'
+                                        }}) }}
+                                    </div>
+                                </div>
+                                <input type="submit" hidden class="none" value="Submit1">
+                            {{ form_end(formLawyer) }}
+                        </div>
+                        <div class="tab_item clearfix {% if checkTab %}tab_item_show{% endif %}">
+                            {{ form_start(formUser, { 'attr': {'method': 'post', 'action': path('register'), novalidate: 'novalidate' } }) }}
+                                {% include 'registration/register-form.html.twig' with {'form': formUser, 'country': true} %}
+                                <input type="submit" hidden class="none" value="Submit2">
+                            {{ form_end(formUser) }}
+                        </div>
+                    </div>
+                    <div class="agree">
+                        <div class="error"></div>
+                        <input type="checkbox" class="none" id="agree2">
+                        <label for="agree2">Приймаю умови угоди користувача</label> <span>* Обов'язкове поле для заповнення</span>
+                    </div>
+                    <input type="submit" class="btn-register right" value="Register">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

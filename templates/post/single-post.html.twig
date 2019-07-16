@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% set pathToPostFolder = constant('App\\Entity\\Post::SERVER_PATH_TO_IMAGE_FOLDER') ~ '/' %}
+    <main>
+        <section class="breadcrumbs">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Про нас</a></li>
+                    <li>> Новини</li>
+                </ul>
+            </div>
+        </section>
+        <section class="main news-container">
+            <div class="container clearfix">
+                <div class="news-inner">
+                    <aside class="right">
+                        <h2><span>інші новини</span></h2>
+                        {% for post in lastPosts if post.title != singlePost.title %}
+                            {% if loop.index < 5 %}
+                                <div class="news-visible">
+                            {% else %}
+                                <div class="news-hide">
+                            {% endif %}
+                                    <div class="news-aside-block">
+                                        <div class="news-block-top clearfix">
+                                            <div class="right date">{{ post.createdAt|date("d/m/Y") }}</div>
+                                            <div class="left news-aside-title">{{ post.title }}</div>
+                                        </div>
+                                        <p>{{ post.description }}</p>
+                                        <a href="{{ path('singleNews', {'slug': post.slug }) }}" class="news-link">Дізнатися більше <i></i></a>
+                                    </div>
+                                </div>
+                        {% endfor %}
+                        <div class="aside-btn clearfix">Наступні новини <i class="icon-arrow"></i> <span class="aside-number right">{{ countPosts }}</span></div>
+                    </aside>
+                    <section class="main-content clearfix">
+                        <div class="new-img" style="background-image: url({{ asset(pathToPostFolder ~ singlePost.filename) }})">
+                            <div class="new-img-content clearfix">
+                                <div class="right">{{ singlePost.createdAt|date("d/m/Y") }}</div>
+                                <div class="left">{{ singlePost.title }}</div>
+                            </div>
+                        </div>
+                        <div class="new-content">
+                            <h2><span>{{ singlePost.title }}</span></h2>
+                            <p>{{ singlePost.content }}</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,82 @@
+<div class="left tab-foto">
+    <div class="error">{{ form_errors(form.avatar) }}</div>
+    <label for="" class="register-foto active"><span>Фото</span><img src="" class="none" alt=""></label>
+    {{ form_widget(form.avatar, {'attr': {
+        'class': 'none register-foto-input'
+    }}) }}
+</div>
+<div class="register-fields">
+    <div class="clearfix">
+        <div class="error">{{ form_errors(form.surname) }}</div>
+        {{ form_label(form.surname, 'Прізвище:') }}
+        {{ form_widget(form.surname, {'attr': {
+            'placeholder': 'Прізвище'
+        }}) }}
+    </div>
+    <div class="clearfix">
+        <div class="error">{{ form_errors(form.firstName) }}</div>
+        {{ form_label(form.firstName, 'Ім’я:') }}
+        {{ form_widget(form.firstName, {'attr': {
+            'placeholder': 'Ім’я'
+        }}) }}
+    </div>
+    <div class="clearfix">
+        {{ form_row(form.patronymic, {
+            'label': 'По батькові:',
+            'attr': {
+                'placeholder': 'По батькові'
+            }
+        }) }}
+    </div>
+    <div class="clearfix">
+        <div class="error">{{ form_errors(form.plainPassword.first) }}</div>
+        {{ form_label(form.plainPassword.first, 'Пароль:') }}
+        {{ form_widget(form.plainPassword.first, {'attr': {
+            'placeholder': 'Пароль'
+        }}) }}
+    </div>
+    <div class="clearfix">
+        <div class="error">{{ form_errors(form.plainPassword.second) }}</div>
+        {{ form_label(form.plainPassword.second, 'Повтор пароля:') }}
+        {{ form_widget(form.plainPassword.second, {'attr': {
+            'placeholder': 'Повтор пароля'
+        }}) }}
+    </div>
+    <div class="clearfix">
+        <div class="error">{{ form_errors(form.phone) }}</div>
+        {{ form_label(form.phone, 'Телефон:') }}
+        {{ form_widget(form.phone, {'attr': {
+            'placeholder': 'Телефон'
+        }}) }}
+    </div>
+    <div class="clearfix">
+        <div class="error">{{ form_errors(form.email) }}</div>
+        {{ form_label(form.email, 'E-mail:') }}
+        {{ form_widget(form.email, {'attr': {
+            'placeholder': 'E-mail'
+        }}) }}
+    </div>
+    {% if country is defined %}
+        <div class="clearfix">
+            {{ form_row(form.country, {
+                'label': 'Країна:',
+                'attr': {
+                    'placeholder': 'Країна'
+                }
+            }) }}
+        </div>
+    {% endif %}
+    <div class="clearfix">
+        <div class="error">{{ form_errors(form.city) }}</div>
+        {{ form_label(form.city, 'Місто:') }}
+        {{ form_widget(form.city, {'attr': {
+            'placeholder': 'Місто'
+        }}) }}
+    </div>
+    <div class="clearfix agree-checkbox none">
+        <div class="error">{{ form_errors(form.agree) }}</div>
+        {{ form_widget(form.agree, {'attr': {
+            'class': 'none',
+        }}) }}
+    </div>
+</div>

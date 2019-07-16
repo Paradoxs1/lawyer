@@ -1,0 +1,28 @@
+<div id="popup" class="white-popup mfp-with-anim mfp-hide clearfix">
+
+    {{ form_start(feedbackForm, {'attr': {'id': 'modal-form', 'class': 'popup-form'}, 'action': path('feedback'), 'method': 'POST'}) }}
+        <h2>свяжитесь с нами</h2>
+
+        {{ form_widget(feedbackForm.userName, {'attr': {'class': 'name', 'placeholder': 'Ваше Ім’я'}}) }}
+        {{ form_help(feedbackForm.userName) }}
+        {{ form_errors(feedbackForm.userName) }}
+
+        {{ form_widget(feedbackForm.userSurname, {'attr': {'class': 'surname', 'placeholder': 'Ваше Прізвище'}}) }}
+        {{ form_help(feedbackForm.userSurname) }}
+        {{ form_errors(feedbackForm.userSurname) }}
+
+        {{ form_widget(feedbackForm.userPhone, {'attr': {'class': 'phone', 'placeholder': 'Номер телефону'}}) }}
+        {{ form_help(feedbackForm.userPhone) }}
+        {{ form_errors(feedbackForm.userPhone) }}
+
+        {{ form_widget(feedbackForm.subject, {'attr': {'class': 'subject', 'placeholder': 'Тема'}}) }}
+        {{ form_help(feedbackForm.userPhone) }}
+        {{ form_errors(feedbackForm.userPhone) }}
+
+        {{ form_widget(feedbackForm.message, {'attr': {'class': 'comment', 'placeholder': 'Введіть повідомлення'}}) }}
+        {{ form_help(feedbackForm.message) }}
+        {{ form_errors(feedbackForm.message) }}
+
+        <button type="submit" class="btn-button submit">Відправити</button>
+    {{ form_end(feedbackForm) }}
+</div>

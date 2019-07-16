@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <main>
+        {{ include('breadcrumbs/breadcrumbs.html.twig') }}
+
+        <section class="entrance entrance-request">
+            <div class="container">
+                <h2>Reset Password</h2>
+                <form method="post" class="entrance-block" novalidate="novalidate">
+                    <div class="error"><ul><li>{{ error }}</li></ul></div>
+                    <input type="email" id="request_form_email" name="email" class="email" placeholder="Email">
+
+                    <input type="submit" class="btn-submit submit" value="Submit">
+                </form>
+            </div>
+        </section>
+    </main>
+    <main>
+{% endblock %}
